@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: url(img/o.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #box{
+        height: 350px;
+        width: 400px;
+        border: 10px solid red;
+        border-radius: 10px;
+        padding: 30px;
+        box-sizing: border-box;
+        margin: 100px auto;
+        background: url(img/a.webp);
+        background-size: cover;
+
+    }
+    p{
+        background: url(img/cap.jpeg);
+        font-size: 40px;
+        width: 250px;
+        text-align: center;
+        letter-spacing: 10px;
+        font-family: impact;
+    }
+    img{
+        transform: translate(260px,-100px);
+    }
+    .txt{
+        width: 100%;
+        transform: translateY(-40px);
+    }
+    .btt{
+        transform: translateY(-37px);
+    }
+    
+</style>
+<body onload="demo()">
+    <div id="box">
+        <s><p>asdf3g</p></s>
+        <img src="img/ref.jpg" onclick="demo()" height="70px">
+        <input type="text" class="txt" placeholder="Enter Captcha Code">
+        <br>
+        <b></b>
+        <br>
+        <button class="btt" onclick="demo1()">SAVE</button>
+    </div>
+    <script>
+        function demo(){
+            var p1=document.querySelector("p")
+            var str="@#$%^*asd"
+            var len=str.length
+            var captcha=""
+            for(var i=0;i<=5;i++)
+            {
+            var rindex=Math.floor(Math.random()*len)
+            var rchar=str[rindex]
+            captcha=captcha+rchar
+            }
+            p1.innerText=captcha
+        }
+        function demo1(){
+            var msg=document.querySelector("b")
+            var t=document.querySelector(".txt")
+            var p=document.querySelector("p")
+            // alert(t.value)
+            // alert(p.innerText)
+            if(t.value.trim()==p.innerText)
+            {
+                msg.innerText="Valid Captcha Code"
+                msg.style.color="green"
+                t.style.border="2px solid green"
+                p.style.border="2px solid green"
+            }
+            else{
+                msg.innerText="InValid Captcha Code"
+                msg.style.color="red"
+                t.style.border="2px solid red"
+                p.style.border="2px solid red"
+
+            }
+
+        }
+    </script>
+</body>
+</html>
